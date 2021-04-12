@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <% if author_signed_in? %>
+      <nav>
+        <%= current_author.email %> |
+        <%= link_to "Sign out", destroy_author_session_path, method: :delete %>
+      </nav>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
